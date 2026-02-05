@@ -70,17 +70,50 @@
 // Use non-string keys
 // Log diferences clearly through output.
 // Task 1.2 – Map vs Object Comparison (Start!)
-let simpleOBj = { name: "Salman" };
-const MapObject = new Map([["name", "Salman"]]);
-simpleOBj.age = 20;
-MapObject.set("age", 20);
-console.log(`using object`, simpleOBj);
-console.log(`using`, MapObject);
-console.log(`getting values in object:${Object.entries(simpleOBj).join(",")}`);
-console.log(`getting values in MapObject: `, MapObject.entries());
-console.log(`adding Boolean Keys: `, MapObject.set(true, false));
-console.log(
-  `difference between object and map is Map can take any types for keys and object only take's "String keys and if you manage to take a key which is not string still it will think that it's string and you can't access it" but in Map you can set any type as key`,
-);
+// let simpleOBj = { name: "Salman" };
+// const MapObject = new Map([["name", "Salman"]]);
+// simpleOBj.age = 20;
+// MapObject.set("age", 20);
+// console.log(`using object`, simpleOBj);
+// console.log(`using`, MapObject);
+// console.log(`getting values in object:${Object.entries(simpleOBj).join(",")}`);
+// console.log(`getting values in MapObject: `, MapObject.entries());
+// console.log(`adding Boolean Keys: `, MapObject.set(true, false));
+// console.log(
+//   `difference between object and map is Map can take any types for keys and object only take's "String keys and if you manage to take a key which is not string still it will think that it's string and you can't access it" but in Map you can set any type as key`,
+// );
 
 // Task 1.2 – Map vs Object Comparison (End!)
+
+// Section 2: Default Parameters (Edge Cases)
+// Task 2.1 – Default Value Traps
+// Write functions that:
+// Use default parameters
+// Receive  undefined ,  null , and valid values
+// Observe how defaults behave in each case.
+// Constraint:
+// You must log input values and fnal results together
+// Section 2: Default Parameters (Edge Cases)(Start!)
+const Funn = (user = true, Class = 15) => {
+  return `initial values that i get ${user} & ${Class}, \n Finall Values: ${user} & ${Class}`;
+};
+console.log(`Adding arguments when Calling function`, Funn("Salman", 16));
+console.log(`Calling function without arguments`, Funn());
+console.log(
+  `Adding arguments null and 16 when Calling function`,
+  Funn(null, 16),
+);
+console.log(
+  `Adding arguments Salman and undefined when Calling function`,
+  Funn("Salman", undefined),
+);
+console.log(
+  `Adding arguments Hachiman and undefined when Calling function`,
+  Funn("Hachiman", undefined),
+);
+console.log(
+  `Adding arguments boolean's false and true when Calling function`,
+  Funn(false, true),
+);
+
+// Section 2: Default Parameters (Edge Cases)(End!)
