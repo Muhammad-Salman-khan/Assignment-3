@@ -53,5 +53,8 @@ console.log(
   setValuesCheck.size,
   setValuesCheck.values(),
 );
+console.log(
+  `Set collect the collection of values.Values which are occure once's dublicate values are remove when you log.It is mainly use to get uniqe data only`,
+);
 
 // Task 1.1 – Set Behavior Investigation (End!)
