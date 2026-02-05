@@ -124,21 +124,40 @@
 // Another default parameter is an object
 // Modify values during execution and observe side efects.
 // Task 2.2 – Defaults with Functions & Objects(Start!)
-function fn1(
-  mes = "hello",
-  yells = () => `how are you`,
-  user = { name: "guest", logins: 0 },
-) {
-  console.log(`${mes} ${yells()} ${user.name}`);
-  user.logins += 1;
-  console.log(` your loggings Attempts: ${user.logins}`);
-}
-const Bio = {
-  name: "Hachiman",
-  logins: 0,
-};
-fn1("Hello!", undefined, Bio);
-fn1("Hello!", undefined, Bio);
-fn1("Hello!", undefined, Bio);
-fn1("Hello!", undefined, Bio);
+// function fn1(
+//   mes = "hello",
+//   yells = () => `how are you`,
+//   user = { name: "guest", logins: 0 },
+// ) {
+//   console.log(`${mes} ${yells()} ${user.name}`);
+//   user.logins += 1;
+//   console.log(` your loggings Attempts: ${user.logins}`);
+// }
+// const Bio = {
+//   name: "Hachiman",
+//   logins: 0,
+// };
+// fn1("Hello!", undefined, Bio);
+// fn1("Hello!", undefined, Bio);
+// fn1("Hello!", undefined, Bio);
+// fn1("Hello!", undefined, Bio);
 // Task 2.2 – Defaults with Functions & Objects(End!)
+
+// Task 3.1 – Functions as Data
+// Demonstrate that functions can be:
+// Stored in variables
+// Passed as arguments
+// Returned from other functions
+// Use meaningful execution output instead of explanations.
+
+// Task 3.1 – Functions as Data(Start!)
+const firstClassCitizen = (n) => {
+  console.log(`Fun recived ${n}`);
+  return n * 2;
+};
+const CollectArgs = (fn, e) => {
+  return fn(e);
+};
+console.log(CollectArgs(firstClassCitizen, 4));
+
+// Task 3.1 – Functions as Data(End!)
