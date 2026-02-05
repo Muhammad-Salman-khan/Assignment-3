@@ -94,26 +94,51 @@
 // Constraint:
 // You must log input values and fnal results together
 // Section 2: Default Parameters (Edge Cases)(Start!)
-const Funn = (user = true, Class = 15) => {
-  return `initial values that i get ${user} & ${Class}, \n Finall Values: ${user} & ${Class}`;
-};
-console.log(`Adding arguments when Calling function`, Funn("Salman", 16));
-console.log(`Calling function without arguments`, Funn());
-console.log(
-  `Adding arguments null and 16 when Calling function`,
-  Funn(null, 16),
-);
-console.log(
-  `Adding arguments Salman and undefined when Calling function`,
-  Funn("Salman", undefined),
-);
-console.log(
-  `Adding arguments Hachiman and undefined when Calling function`,
-  Funn("Hachiman", undefined),
-);
-console.log(
-  `Adding arguments boolean's false and true when Calling function`,
-  Funn(false, true),
-);
+// const Funn = (user = true, Class = 15) => {
+//   return `initial values that i get ${user} & ${Class}, \n Finall Values: ${user} & ${Class}`;
+// };
+// console.log(`Adding arguments when Calling function`, Funn("Salman", 16));
+// console.log(`Calling function without arguments`, Funn());
+// console.log(
+//   `Adding arguments null and 16 when Calling function`,
+//   Funn(null, 16),
+// );
+// console.log(
+//   `Adding arguments Salman and undefined when Calling function`,
+//   Funn("Salman", undefined),
+// );
+// console.log(
+//   `Adding arguments Hachiman and undefined when Calling function`,
+//   Funn("Hachiman", undefined),
+// );
+// console.log(
+//   `Adding arguments boolean's false and true when Calling function`,
+//   Funn(false, true),
+// );
 
 // Section 2: Default Parameters (Edge Cases)(End!)
+
+// Task 2.2 – Defaults with Functions & Objects
+// Create a function where:
+// One default parameter is a function
+// Another default parameter is an object
+// Modify values during execution and observe side efects.
+// Task 2.2 – Defaults with Functions & Objects(Start!)
+function fn1(
+  mes = "hello",
+  yells = () => `how are you`,
+  user = { name: "guest", logins: 0 },
+) {
+  console.log(`${mes} ${yells()} ${user.name}`);
+  user.logins += 1;
+  console.log(` your loggings Attempts: ${user.logins}`);
+}
+const Bio = {
+  name: "Hachiman",
+  logins: 0,
+};
+fn1("Hello!", undefined, Bio);
+fn1("Hello!", undefined, Bio);
+fn1("Hello!", undefined, Bio);
+fn1("Hello!", undefined, Bio);
+// Task 2.2 – Defaults with Functions & Objects(End!)
