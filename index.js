@@ -188,10 +188,9 @@ const Tax = (arr) =>
       .filter(({ Salary }) => Salary > 30000)
       .map(({ name, Salary }) => {
         const afterTax = Salary * 0.9;
-        return `After tax Name: ${name}, salary: $${afterTax}`;
+        return `After tax EmploySalary Name: ${name} salary: $${afterTax}`;
       }),
   );
-
 const seeSalary = afterTax(Tax, 1);
 seeSalary(coperateSalary);
 // Task 3.2 – Build Your Own Higher-Order Function (Hard)(End!)
