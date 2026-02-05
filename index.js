@@ -253,3 +253,92 @@
 //   ),
 // );
 // Task 4.1 – Synchronous Callback Flow (End!)
+
+// Task 4.2 – Asynchronous Callback Observation
+// Create an asynchronous operation using callbacks (e.g., timers).
+// Mandatory:
+// Log timestamps
+// Clearly show execution order vs written order
+// Task 4.2 – Asynchronous Callback Observation(Start!)
+function Asynchronous1(e) {
+  console.log("AsyncFunction 1");
+  console.log("AsyncFunction working 1 ");
+  console.log("AsyncFunction 2 be running after 1000ms ");
+  setTimeout(() => {
+    console.log("AsyncFunction 1 Ended ");
+    e();
+  }, 1000);
+}
+function Asynchronous2(e) {
+  console.log("AsyncFunction 2");
+  console.log("AsyncFunction working 2");
+  console.log("AsyncFunction 3 be running after 1200ms ");
+  setTimeout(() => {
+    console.log("AsyncFunction 2 Ended ");
+    e();
+  }, 1200);
+}
+function Asynchronous3(e) {
+  console.log("AsyncFunction 3");
+  console.log("AsyncFunction working 3");
+  console.log("AsyncFunction 3 will be running after 500");
+  setTimeout(() => {
+    console.log("AsyncFunction 3 Ended ");
+    e();
+  }, 500);
+}
+function Asynchronous4(e) {
+  console.log("AsyncFunction 4");
+  console.log("AsyncFunction working 4");
+  console.log("AsyncFunction 4 will be running after 700");
+  setTimeout(() => {
+    console.log("AsyncFunction 4 Ended ");
+
+    e();
+  }, 500);
+}
+function Asynchronous5(e) {
+  console.log("AsyncFunction 5");
+  console.log("AsyncFunction working 5");
+  console.log("AsyncFunction 5 will be running after 200");
+  if (e) {
+    console.log("AsyncFunction 5 Ended ");
+
+    setTimeout(() => e(), 900);
+  } else {
+    return;
+  }
+}
+Asynchronous1(() =>
+  Asynchronous2(() =>
+    Asynchronous3(() =>
+      Asynchronous4(() => Asynchronous5(() => console.log(`end`))),
+    ),
+  ),
+);
+console.log(`execution order 
+  AsyncFunction 1
+AsyncFunction working 1 
+AsyncFunction 2 be running after 1000ms 
+AsyncFunction 1 Ended 
+AsyncFunction 2
+AsyncFunction working 2
+AsyncFunction 3 be running after 1200ms 
+AsyncFunction 2 Ended 
+AsyncFunction 3
+AsyncFunction working 3
+AsyncFunction 3 will be running after 500
+AsyncFunction 3 Ended 
+AsyncFunction 4
+AsyncFunction working 4
+AsyncFunction 4 will be running after 700
+AsyncFunction 4 Ended 
+AsyncFunction 5
+AsyncFunction working 5
+AsyncFunction 5 will be running after 200
+AsyncFunction 5 Ended 
+end
+
+  `);
+
+// Task 4.2 – Asynchronous Callback Observation(End!)
