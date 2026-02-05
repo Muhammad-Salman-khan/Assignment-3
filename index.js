@@ -8,7 +8,7 @@
 // Use at least one object and one array as values
 // Modify a stored object and observe the result
 // Task 1.1 – Set Behavior Investigation (Start!)
-let setValuesCheck = new Set([]);
+let setValuesCheck = new Set();
 console.log(`SetValuesCheck initial size:`, setValuesCheck.size);
 setValuesCheck.add(1);
 setValuesCheck.add(2);
