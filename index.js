@@ -356,12 +356,9 @@
 // Build a small JavaScript task runner application that:(Start!)
 function TaskRUnner(config = { run: false }) {
   const myTasks = new Map();
-  const addTask = (
-    name,
-    task = () => console.log(`if noting add i just show myself`),
-  ) => {
+  const addTask = (name, task = () => `if noting i just show myself`) => {
     myTasks.set(name, task);
-    if (config.run) addTask();
+    if (config.run) addTask;
   };
   function getTask(name, cb = () => {}) {
     const task = myTasks.get(name);
@@ -372,6 +369,14 @@ function TaskRUnner(config = { run: false }) {
   return { addTask, getTask };
 }
 const addMyTask = TaskRUnner({ run: false });
-addMyTask.addTask("My App idea", () => "I want to Build fullstack app");
-addMyTask.getTask("My App idea");
-// Build a small JavaScript task runner application that:(End!)
+addMyTask.addTask("App-idea", () => `Have to build my full-stack app`);
+addMyTask.getTask("App-idea");
+console.log(
+  `First of all it was a hard Challange and it took me long time to complete this The first Behavior i was using SET but it was not working correctly and I have to use map is also Good and i didn't know i can get function just by providing key and saving function was the best part`,
+);
+console.log(
+  `Second the addTask on config is crazy i get it will call it self again without name and give me maximum CallStack error`,
+);
+console.log(
+  `Third i came to know if Task Name doesn't exists it will show Task is not a function which i will correct it using if condition and i consulted with ai for dryrun and a bit of a guide but i did this and learn from it`,
+);
