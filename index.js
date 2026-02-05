@@ -168,29 +168,88 @@
 // Controls when and how many times that function runs
 // Change the behavior by passing diferent functions.
 // Task 3.2 – Build Your Own Higher-Order Function (Hard)(Start!)
-const coperateSalary = [
-  { name: "Salman", Salary: 30000 },
-  { name: "Subhan", Salary: 40000 },
-  { name: "Ali", Salary: 80000 },
-  { name: "Zain", Salary: 120000 },
-  { name: "ez", Salary: 150000 },
-];
-const afterTax = (f, times) => {
-  return (arg) => {
-    for (let i = 0; i < times; i++) {
-      f(arg);
-    }
-  };
-};
-const Tax = (arr) =>
-  console.log(
-    arr
-      .filter(({ Salary }) => Salary > 30000)
-      .map(({ name, Salary }) => {
-        const afterTax = Salary * 0.9;
-        return `After tax EmploySalary Name: ${name} salary: $${afterTax}`;
-      }),
-  );
-const seeSalary = afterTax(Tax, 1);
-seeSalary(coperateSalary);
+// const coperateSalary = [
+//   { name: "Salman", Salary: 30000 },
+//   { name: "Subhan", Salary: 40000 },
+//   { name: "Ali", Salary: 80000 },
+//   { name: "Zain", Salary: 120000 },
+//   { name: "ez", Salary: 150000 },
+// ];
+// const afterTax = (f, times) => {
+//   return (arg) => {
+//     for (let i = 0; i < times; i++) {
+//       f(arg);
+//     }
+//   };
+// };
+// const Tax = (arr) =>
+//   console.log(
+//     arr
+//       .filter(({ Salary }) => Salary > 30000)
+//       .map(({ name, Salary }) => {
+//         const afterTax = Salary * 0.9;
+//         return `After tax EmploySalary Name: ${name} salary: $${afterTax}`;
+//       }),
+//   );
+// const seeSalary = afterTax(Tax, 1);
+// seeSalary(coperateSalary);
 // Task 3.2 – Build Your Own Higher-Order Function (Hard)(End!)
+
+// Task 4.1 – Synchronous Callback Flow
+// Write a program that:
+// Uses callbacks to control execution order
+// Logs start and end of each step
+// Rearrange callbacks and observe changes.
+// Task 4.1 – Synchronous Callback Flow (Start!)
+// function Synchronous1(e) {
+//   console.log("Stating the logs battls");
+//   console.log("Function 1");
+//   console.log("Function working1");
+//   e();
+// }
+// function Synchronous2(e) {
+//   console.log("Function 2");
+//   console.log("Function working 2");
+//   e();
+// }
+// function Synchronous3(e) {
+//   console.log("Function 3");
+//   console.log("Function working 3");
+//   e();
+// }
+// function Synchronous4(e) {
+//   console.log("Function 4");
+//   console.log("Function working 4");
+//   e();
+// }
+// function Synchronous5(e) {
+//   console.log("Function 5");
+//   console.log("Function working 5");
+//   if (e) {
+//     e();
+//   } else {
+//     return;
+//   }
+// }
+// Synchronous1(() =>
+//   Synchronous2(() =>
+//     Synchronous3(() =>
+//       Synchronous4(() => Synchronous5(() => console.log(`end`))),
+//     ),
+//   ),
+// );
+// Synchronous5(() =>
+//   Synchronous4(() =>
+//     Synchronous3(() =>
+//       Synchronous2(() => Synchronous1(() => console.log(`end`))),
+//     ),
+//   ),
+// );
+// Synchronous2(() =>
+//   Synchronous3(() =>
+//     Synchronous5(() =>
+//       Synchronous4(() => Synchronous1(() => console.log(`end`))),
+//     ),
+//   ),
+// );
+// Task 4.1 – Synchronous Callback Flow (End!)
