@@ -151,13 +151,47 @@
 // Use meaningful execution output instead of explanations.
 
 // Task 3.1 – Functions as Data(Start!)
-const firstClassCitizen = (n) => {
-  console.log(`Fun recived ${n}`);
-  return n * 2;
-};
-const CollectArgs = (fn, e) => {
-  return fn(e);
-};
-console.log(CollectArgs(firstClassCitizen, 4));
+// const firstClassCitizen = (n) => {
+//   console.log(`Fun recived ${n}`);
+//   return n * 2;
+// };
+// const CollectArgs = (fn, e) => {
+//   return fn(e);
+// };
+// console.log(CollectArgs(firstClassCitizen, 4));
 
 // Task 3.1 – Functions as Data(End!)
+
+// Task 3.2 – Build Your Own Higher-Order Function (Hard)
+// Create a higher-order function that:
+// Accepts a function as an argument
+// Controls when and how many times that function runs
+// Change the behavior by passing diferent functions.
+// Task 3.2 – Build Your Own Higher-Order Function (Hard)(Start!)
+const coperateSalary = [
+  { name: "Salman", Salary: 30000 },
+  { name: "Subhan", Salary: 40000 },
+  { name: "Ali", Salary: 80000 },
+  { name: "Zain", Salary: 120000 },
+  { name: "ez", Salary: 150000 },
+];
+const afterTax = (f, times) => {
+  return (arg) => {
+    for (let i = 0; i < times; i++) {
+      f(arg);
+    }
+  };
+};
+const Tax = (arr) =>
+  console.log(
+    arr
+      .filter(({ Salary }) => Salary > 30000)
+      .map(({ name, Salary }) => {
+        const afterTax = Salary * 0.9;
+        return `After tax Name: ${name}, salary: $${afterTax}`;
+      }),
+  );
+
+const seeSalary = afterTax(Tax, 1);
+seeSalary(coperateSalary);
+// Task 3.2 – Build Your Own Higher-Order Function (Hard)(End!)
