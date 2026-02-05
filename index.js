@@ -260,85 +260,118 @@
 // Log timestamps
 // Clearly show execution order vs written order
 // Task 4.2 – Asynchronous Callback Observation(Start!)
-function Asynchronous1(e) {
-  console.log("AsyncFunction 1");
-  console.log("AsyncFunction working 1 ");
-  console.log("AsyncFunction 2 be running after 1000ms ");
-  setTimeout(() => {
-    console.log("AsyncFunction 1 Ended ");
-    e();
-  }, 1000);
-}
-function Asynchronous2(e) {
-  console.log("AsyncFunction 2");
-  console.log("AsyncFunction working 2");
-  console.log("AsyncFunction 3 be running after 1200ms ");
-  setTimeout(() => {
-    console.log("AsyncFunction 2 Ended ");
-    e();
-  }, 1200);
-}
-function Asynchronous3(e) {
-  console.log("AsyncFunction 3");
-  console.log("AsyncFunction working 3");
-  console.log("AsyncFunction 3 will be running after 500");
-  setTimeout(() => {
-    console.log("AsyncFunction 3 Ended ");
-    e();
-  }, 500);
-}
-function Asynchronous4(e) {
-  console.log("AsyncFunction 4");
-  console.log("AsyncFunction working 4");
-  console.log("AsyncFunction 4 will be running after 700");
-  setTimeout(() => {
-    console.log("AsyncFunction 4 Ended ");
+// function Asynchronous1(e) {
+//   console.log("AsyncFunction 1");
+//   console.log("AsyncFunction working 1 ");
+//   console.log("AsyncFunction 2 be running after 1000ms ");
+//   setTimeout(() => {
+//     console.log("AsyncFunction 1 Ended ");
+//     e();
+//   }, 1000);
+// }
+// function Asynchronous2(e) {
+//   console.log("AsyncFunction 2");
+//   console.log("AsyncFunction working 2");
+//   console.log("AsyncFunction 3 be running after 1200ms ");
+//   setTimeout(() => {
+//     console.log("AsyncFunction 2 Ended ");
+//     e();
+//   }, 1200);
+// }
+// function Asynchronous3(e) {
+//   console.log("AsyncFunction 3");
+//   console.log("AsyncFunction working 3");
+//   console.log("AsyncFunction 3 will be running after 500");
+//   setTimeout(() => {
+//     console.log("AsyncFunction 3 Ended ");
+//     e();
+//   }, 500);
+// }
+// function Asynchronous4(e) {
+//   console.log("AsyncFunction 4");
+//   console.log("AsyncFunction working 4");
+//   console.log("AsyncFunction 4 will be running after 700");
+//   setTimeout(() => {
+//     console.log("AsyncFunction 4 Ended ");
 
-    e();
-  }, 500);
-}
-function Asynchronous5(e) {
-  console.log("AsyncFunction 5");
-  console.log("AsyncFunction working 5");
-  console.log("AsyncFunction 5 will be running after 200");
-  if (e) {
-    console.log("AsyncFunction 5 Ended ");
+//     e();
+//   }, 500);
+// }
+// function Asynchronous5(e) {
+//   console.log("AsyncFunction 5");
+//   console.log("AsyncFunction working 5");
+//   console.log("AsyncFunction 5 will be running after 200");
+//   if (e) {
+//     console.log("AsyncFunction 5 Ended ");
 
-    setTimeout(() => e(), 900);
-  } else {
-    return;
-  }
-}
-Asynchronous1(() =>
-  Asynchronous2(() =>
-    Asynchronous3(() =>
-      Asynchronous4(() => Asynchronous5(() => console.log(`end`))),
-    ),
-  ),
-);
-console.log(`execution order 
-  AsyncFunction 1
-AsyncFunction working 1 
-AsyncFunction 2 be running after 1000ms 
-AsyncFunction 1 Ended 
-AsyncFunction 2
-AsyncFunction working 2
-AsyncFunction 3 be running after 1200ms 
-AsyncFunction 2 Ended 
-AsyncFunction 3
-AsyncFunction working 3
-AsyncFunction 3 will be running after 500
-AsyncFunction 3 Ended 
-AsyncFunction 4
-AsyncFunction working 4
-AsyncFunction 4 will be running after 700
-AsyncFunction 4 Ended 
-AsyncFunction 5
-AsyncFunction working 5
-AsyncFunction 5 will be running after 200
-AsyncFunction 5 Ended 
-end
-
-  `);
+//     setTimeout(() => e(), 900);
+//   } else {
+//     return;
+//   }
+// }
+// Asynchronous1(() =>
+//   Asynchronous2(() =>
+//     Asynchronous3(() =>
+//       Asynchronous4(() => Asynchronous5(() => console.log(`end`))),
+//     ),
+//   ),
+// );
+// console.log(`execution order
+//   AsyncFunction 1
+// AsyncFunction working 1
+// AsyncFunction 2 be running after 1000ms
+// AsyncFunction 1 Ended
+// AsyncFunction 2
+// AsyncFunction working 2
+// AsyncFunction 3 be running after 1200ms
+// AsyncFunction 2 Ended
+// AsyncFunction 3
+// AsyncFunction working 3
+// AsyncFunction 3 will be running after 500
+// AsyncFunction 3 Ended
+// AsyncFunction 4
+// AsyncFunction working 4
+// AsyncFunction 4 will be running after 700
+// AsyncFunction 4 Ended
+// AsyncFunction 5
+// AsyncFunction working 5
+// AsyncFunction 5 will be running after 200
+// AsyncFunction 5 Ended
+// end`);
 
 // Task 4.2 – Asynchronous Callback Observation(End!)
+
+// Final Project (Medium → Hard)
+// JavaScript Task Runner App
+// Build a small JavaScript task runner application that:
+// Stores tasks using  Map  or  Set
+// Executes tasks using callbacks
+// Uses default parameters for confguration
+// Treats tasks as frst-class functions
+// Proof of Work Requirements:
+// Add a section called  Execution Logs
+// Log at least 3 non-obvious behaviors you observed
+// Logs must be based on actual execution
+
+// Build a small JavaScript task runner application that:(Start!)
+function TaskRUnner(config = { run: false }) {
+  const myTasks = new Map();
+  const addTask = (
+    name,
+    task = () => console.log(`if noting add i just show myself`),
+  ) => {
+    myTasks.set(name, task);
+    if (config.run) addTask();
+  };
+  function getTask(name, cb = () => {}) {
+    const task = myTasks.get(name);
+    console.log(task());
+    const Fun = task();
+    return cb(Fun);
+  }
+  return { addTask, getTask };
+}
+const addMyTask = TaskRUnner({ run: false });
+addMyTask.addTask("My App idea", () => "I want to Build fullstack app");
+addMyTask.getTask("My App idea");
+// Build a small JavaScript task runner application that:(End!)
